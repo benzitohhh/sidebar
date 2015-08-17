@@ -63,27 +63,14 @@
         width: 100%; height: 2000px;
       }      
     </style>
-    <script type="text/javascript">
-      $(function () {
-          // Click handler
-          jQuery('.animated-wrapper').on('click', function () {
-              // State checker
-              if( jQuery(this).attr('data-state') === 'neutral' ) {
-                  jQuery(this).attr('data-state', 'slide-right')
-              } else {
-                  jQuery(this).attr('data-state', 'neutral')
-              }
-          });
-      });
-    </script>
   </head>
   <body>
-    <!-- Hidden fbMenu -->
+    <!-- Fixed sidebar -->
     <nav>
       <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
+        <li id="home">Home</li>
+        <li id="about">About</li>
+        <li id="contact">Contact</li>
       </ul>
     </nav>
     <!-- Content wrapper -->
@@ -92,6 +79,18 @@
         <h1>My Website</h1>
       </header>
       <div class="content">My Content</div>
-    </div>    
+    </div>
+    <script type="text/javascript">
+      $('.animated-wrapper').on('click', function () {
+        // State checker
+        if( $(this).attr('data-state') === 'neutral' ) {
+          $(this).attr('data-state', 'slide-right')
+        } else {
+          $(this).attr('data-state', 'neutral')
+        }
+      });
+
+      $("#home, #about, #contact").click(function() { console.log("yay"); });
+    </script>
   </body>
 </html>
