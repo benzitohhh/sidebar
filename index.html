@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+      }
+      div.hardware-accelarate {
+          -webkit-transform: translate3d(0,0,0);
+          -moz-transform: translate3d(0,0,0);
+          -ms-transform: translate3d(0,0,0);
+          -o-transform: translate3d(0,0,0);
+          transform: translate3d(0,0,0);
+      }
+      nav {
+          background: #ddd;
+          display: block;
+          position: fixed;
+          height: 100%;
+          left: 0;
+          width: 200px;
+          z-index: 0;
+      }
+      div.animated-wrapper {
+          background: #333;
+          overflow: hidden;
+          position: relative;
+          width: 100%;
+          z-index: 1;
+          -webkit-transition: -webkit-transform .2s ease-in-out;
+          -moz-transition: -moz-transform .2s ease-in-out;
+          -ms-transition: -ms-transform .2s ease-in-out;
+          -o-transition: -o-transform .2s ease-in-out;
+          transition: transform .2s ease-in-out;
+      }
+      div.animated-wrapper[data-state="neutral"] {
+          -webkit-transform: translateX(0);
+          -moz-transform: translateX(0);
+          -o-transform: translateX(0);
+          transform: translateX(0);
+      }
+      div.animated-wrapper[data-state = "slide-right"] {
+          -webkit-transform: translateX(200px);
+          -moz-transform: translateX(200px);
+          -o-transform: translateX(200px);
+          transform: translateX(200px);
+      }
+      header {
+        background: #fff;
+        width: 100%; height: 80px;
+      }
+      div.content {
+        background: #ccc;
+        padding: 20px;
+        width: 100%; height: 2000px;
+      }      
+    </style>
+    <script type="text/javascript">
+      $(function () {
+          // Click handler
+          jQuery('.animated-wrapper').on('click', function () {
+              // State checker
+              if( jQuery(this).attr('data-state') === 'neutral' ) {
+                  jQuery(this).attr('data-state', 'slide-right')
+              } else {
+                  jQuery(this).attr('data-state', 'neutral')
+              }
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Hidden fbMenu -->
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+    <!-- Content wrapper -->
+    <div class="animated-wrapper hardware-accelarate" data-state="neutral">
+      <header>
+        <h1>My Website</h1>
+      </header>
+      <div class="content">My Content</div>
+    </div>    
+  </body>
+</html>
